@@ -17,31 +17,32 @@ First, clone the repository to your local machine and navigate into the project 
 ```bash
 git clone https://github.com/sachinnimbal/CRUD-Operation-Using-SpringBoot.git
 cd CRUD-Operation-Using-SpringBoot
-
-
-2. Open in Visual Studio Code
+``` 
+### 2. Open in Visual Studio Code
 Open the cloned repository in Visual Studio Code:
 
 bash
 Copy code
 code .
 
-3. Install Spring Boot Extension Pack
+### 3. Install Spring Boot Extension Pack
 Install the Spring Boot Extension Pack in VS Code. You can do this by searching for it in the Extensions view (Ctrl+Shift+X) or by visiting this link.
 
-4. Build the Project
+### 4. Build the Project
 Ensure you have Gradle installed. Build the project using:
 
 bash
 Copy code
 ./gradlew build
-5. Run the Application
+
+### 5. Run the Application
 Start the Spring Boot application with:
 
 bash
 Copy code
 ./gradlew bootRun
-6. Access the Application
+
+### 6. Access the Application
 Open your browser and navigate to http://localhost:8080.
 
 Additional Information
