@@ -147,40 +147,6 @@
 		</div>
 	</div>
 
-	<div class="modal fade" id="editData" tabindex="-1" aria-labelledby="editDataLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h1 class="modal-title fs-5" id="editDataLabel">Edit Details</h1>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-				</div>
-				<form action="edit" method="post">
-					<div class="modal-body">
-						<div class="form-floating mb-3">
-							<input type="text" class="form-control" name="name" id="floatingName"
-								placeholder="Sachin Nimbal" required>
-							<label for="floatingName">Full Name</label>
-						</div>
-						<div class="form-floating mb-3">
-							<input type="phone" class="form-control" name="phone" id="floatingPhone"
-								placeholder="9900140463" required>
-							<label for="floatingPhone">Phone Number</label>
-						</div>
-						<div class="form-floating">
-							<textarea class="form-control" name="about" placeholder="Leave a comment here"
-								id="floatingAbout" required></textarea>
-							<label for="floatingAbout">About</label>
-						</div>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-						<button type="submit" class="btn btn-primary">Save</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-
 	<script>
 		function confirmDelete(event, form) {
 			event.preventDefault();
