@@ -36,12 +36,15 @@ Ensure you have Gradle installed. Build the project using:
 ./gradlew build
 ```
 
-### 5. Run the Application
+### 5. Change Database Password
+Before running the application, make sure to update the password in the application.properties file to match your MySQL database password.
+
+### 6. Run the Application
 Start the Spring Boot application with:
 
 ```bash
 ./gradlew bootRun
 ```
 
-### 6. Access the Application
+### 7. Access the Application
 Open your browser and navigate to http://localhost:8080.
