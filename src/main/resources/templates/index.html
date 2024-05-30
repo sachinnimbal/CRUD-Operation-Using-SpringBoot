@@ -9,9 +9,10 @@
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 	<link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+	<link rel="stylesheet" href="https://cdn.datatables.net/2.0.7/css/dataTables.bootstrap5.min.css">
 </head>
 
-<body class="bg-dark">
+<body>
 
 	<nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
 		<div class="container-fluid">
@@ -34,9 +35,12 @@
 	</nav>
 
 	<div class="container">
+		
+		<div class="card table-responsive mt-5">
 
-		<div class="card table-responsive mt-5 bg-dark">
-
+			<div class="card-header h3">
+				Crud Application Using SpringBoot
+			</div>
 			<!-- Alert placeholder -->
 			<div id="liveAlertPlaceholder">
 				<div th:if="${successMessage}" class="alert alert-info alert-dismissible fade show" role="alert">
@@ -48,34 +52,28 @@
 					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 				</div>
 			</div>
-
-			<div class="card-header h3 text-warning">
-				Crud Application Using SpringBoot
-			</div>
 			<div class="card-body">
-				<table id="example" class="table table-hover table-bordered table-dark">
+				<table id="example" class="table table-hover table-bordered">
 					<thead>
 						<tr>
 							<th>#</th>
 							<th>ID</th>
-							<th>Name</th>
-							<th>Phone</th>
+							<th>Full Name</th>
 							<th>About</th>
+							<th>Phone</th>
 							<th>Created Date</th>
 							<th>Updated Date</th>
 							<th>Actions</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr th:if="${#lists.isEmpty(details)}">
-							<td colspan="8" class="text-center align-middle">No data available</td>
-						</tr>
+
 						<tr th:each="crud, loop : ${details}">
 							<td th:text="${loop.count}" class="text-center align-middle">#</td>
 							<td th:text="${crud.id != null ? crud.id : 'NA'}" class="text-center align-middle">ID</td>
 							<td th:text="${crud.name != null ? crud.name : 'NA'}" class="align-middle">Full Name</td>
-							<td th:text="${crud.phone != null ? crud.phone : 'NA'}" class="align-middle">Phone No.</td>
 							<td th:text="${crud.about != null ? crud.about : 'NA'}" class="align-middle">About</td>
+							<td th:text="${crud.phone != null ? crud.phone : 'NA'}" class="text-center align-middle">Phone</td>
 							<td th:text="${#dates.format(crud.createdDate, 'dd/MM/yyyy hh:mm a')}"
 								class="text-center align-middle">Created Date</td>
 							<td th:text="${crud.updatedDate != null ? #dates.format(crud.updatedDate, 'dd/MM/yyyy hh:mm a') : 'NA'}"
@@ -100,8 +98,8 @@
 							<th>#</th>
 							<th>ID</th>
 							<th>Name</th>
-							<th>Phone</th>
 							<th>About</th>
+							<th>Phone</th>
 							<th>Created Date</th>
 							<th>Updated Date</th>
 							<th>Actions</th>
@@ -147,24 +145,38 @@
 		</div>
 	</div>
 
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://cdn.datatables.net/2.0.7/js/dataTables.js"></script>
+	<script src="https://cdn.datatables.net/2.0.7/js/dataTables.bootstrap5.js"></script>
+
 	<script>
-		function confirmDelete(event, form) {
-			event.preventDefault();
-			Swal.fire({
-				title: 'Are you sure?',
-				text: 'You won\'t be able to revert this!',
-				icon: 'warning',
-				showCancelButton: true,
-				confirmButtonText: 'Yes, delete it!',
-				cancelButtonText: 'No, cancel!',
-				reverseButtons: true
-			}).then((result) => {
-				if (result.isConfirmed) {
-					form.submit();
-				}
+		document.addEventListener("DOMContentLoaded", function () {
+			$(document).ready(function () {
+				$('#example').DataTable();
 			});
-		}
+		});
 	</script>
+	<script>
+	    // Define the confirmDelete function globally
+	    window.confirmDelete = function(event, form) {
+	        event.preventDefault();
+	        Swal.fire({
+	            title: 'Are you sure?',
+	            text: 'You won\'t be able to revert this!',
+	            icon: 'warning',
+	            showCancelButton: true,
+	            confirmButtonText: 'Yes, delete it!',
+	            cancelButtonText: 'No, cancel!',
+	            reverseButtons: true
+	        }).then((result) => {
+	            if (result.isConfirmed) {
+	                form.submit();
+	            }
+	        });
+	    };
+	</script>
+
+
 </body>
 
 </html>
